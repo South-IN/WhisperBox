@@ -9,7 +9,7 @@ export async function sendVerificationMail(
   try {
     await resend.emails.send({
       from: "Acme <onboarding@resend.dev>",
-      to: email,
+      to: process.env.MY_MAIL || "",
       subject: "Whisper box Verification code",
       react: VerificationEmail({ username, otp: verifyCode }),
     });
